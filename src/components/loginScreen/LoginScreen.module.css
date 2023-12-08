@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    width: 400px;
+    width: 380px;
     height: 465px;
     margin: auto;
     position: absolute;
@@ -42,8 +42,17 @@
 
 .loginForm [type="submit"] {
     padding: 10px;
+    cursor: pointer;
 }
 
 .loginForm label {
     text-align: left;
+}
+
+.formFooter {
+    margin-bottom: 10px;
+}
+
+.formFooter a {
+    text-decoration: none;
 }
