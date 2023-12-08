@@ -32,6 +32,11 @@ export const LoginScreen = (props) => {
                 </input>
                 <button type="submit" className="submitBtn"> Login </button>
             </form>
+            <div className={styles.formFooter}>
+                <div>
+                    <span>Don't have an account?</span> <a href="">Create an account</a>
+                </div>
+            </div>
         </div>
     );
 }
