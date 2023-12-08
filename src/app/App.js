@@ -1,11 +1,13 @@
+import React from 'react';
+import { Home } from '../components/home/Home.jsx';
 import '../styles/App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
+
   return (
     <div className="App">
-      <header className="App-header">
-          Learn React
-      </header>
+        <Home />
     </div>
   );
 }
