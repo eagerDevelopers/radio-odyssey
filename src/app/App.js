@@ -1,13 +1,30 @@
 import React from 'react';
-import { Home } from '../components/home/Home.jsx';
+import { Home } from '../pages/home/Home.jsx';
 import '../styles/App.css';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginScreen from '../pages/loginScreen/LoginScreen.jsx'
+import SignupScreen from '../pages/singupScreen.jsx/SignupScreen.jsx';
 
 function App() {
 
   return (
     <div className="App">
-        <Home />
+      <BrowserRouter>
+        <Routes>
+            <Route
+              path="/"
+              element={<Home />}
+            />
+            <Route
+              path="/login"
+              element={<LoginScreen />}
+            />
+            <Route
+              path="/signup"
+              element={<SignupScreen />}
+            />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
