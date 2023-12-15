@@ -5,14 +5,21 @@ import { Link } from "react-router-dom"
 import { useSignup } from "../../hook/useSignup"
 
 const SignupScreen = () => {
-    const [userName, setUsername] = useState("")
-    const [password, setPassword] = useState('')
+    const [signupData, setSignupData] = useState({
+        username:"",
+        password:""
+    })
     const {signup, isLoading, error} = useSignup()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await signup(userName, password)
+        await signup(signupData)
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setSignupData({ ...signupData, [name]: value });
     }
 
     return (
@@ -23,7 +30,9 @@ const SignupScreen = () => {
                 <input 
                     type="text"
                     placeholder="Username"
-                    onChange={(e) => setUsername(e.target.value)}
+                    name="username"
+                    value={signupData.username}
+                    onChange={handleChange}
                     required>
                 </input>
 
@@ -32,10 +41,11 @@ const SignupScreen = () => {
                     type="password" 
                     placeholder="Password" 
                     name="password" 
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={signupData.password}
+                    onChange={handleChange}
                     required>
                 </input>
-                <button type="submit" className="submitBtn" disabled={isLoading}> Sign up </button>
+                <button type="submit" className={styles.submitButton} disabled={isLoading}> Sign up </button>
                 { error && <div className="error">{error}</div> }
             </form>
             <div className={styles.formFooter}>
@@ -45,7 +55,7 @@ const SignupScreen = () => {
                 </div>
                 <div>
                     <span>Don't need an account?</span>
-                    <Link to="/">Continue unregistered</Link>
+                    <Link to="/map">Continue unregistered</Link>
                 </div>
             </div>
         </div>

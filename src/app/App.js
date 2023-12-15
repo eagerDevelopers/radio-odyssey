@@ -4,6 +4,7 @@ import '../styles/App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginScreen from '../pages/loginScreen/LoginScreen.jsx'
 import SignupScreen from '../pages/singupScreen.jsx/SignupScreen.jsx';
+import MapScreen from '../pages/mapScreen/MapScreen.jsx';
 
 function App() {
 
@@ -23,6 +24,10 @@ function App() {
               path="/signup"
               element={<SignupScreen />}
             />
+            <Route
+              path="/map"
+              element={<MapScreen />}>
+            </Route>
         </Routes>
       </BrowserRouter>
     </div>
