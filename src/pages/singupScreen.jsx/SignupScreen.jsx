@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 import { useSignup } from "../../hook/useSignup"
 
 const SignupScreen = () => {
-    const [signupData, setSignupData] = useState({
+    const [authData, setAuthData] = useState({
         username:"",
         password:""
     })
@@ -14,12 +14,12 @@ const SignupScreen = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await signup(signupData)
+        await signup(authData)
     }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setSignupData({ ...signupData, [name]: value });
+        setAuthData({ ...authData, [name]: value });
     }
 
     return (
@@ -31,7 +31,7 @@ const SignupScreen = () => {
                     type="text"
                     placeholder="Username"
                     name="username"
-                    value={signupData.username}
+                    value={authData.username}
                     onChange={handleChange}
                     required>
                 </input>
@@ -41,7 +41,7 @@ const SignupScreen = () => {
                     type="password" 
                     placeholder="Password" 
                     name="password" 
-                    value={signupData.password}
+                    value={authData.password}
                     onChange={handleChange}
                     required>
                 </input>

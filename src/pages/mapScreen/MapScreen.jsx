@@ -2,10 +2,11 @@ import React from 'react'
 import styles from './MapScreen.module.css'
 import { useLogout } from '../../hook/useLogout'
 import { Link } from 'react-router-dom'
+import { useAuthContext } from '../../hook/useAuthContext'
 
 const MapScreen = () => {
     const { logout } = useLogout()
-
+    const { user } = useAuthContext()
     const handleClick = () => {
         logout()
     }
@@ -14,13 +15,20 @@ const MapScreen = () => {
         <div>
             <nav>
                 <div>
-                    <button onClick={handleClick}>Log out</button>
+                    {user && (
+                        <div>
+                            <button onClick={handleClick}>Log out</button>
+                            <span>{user.authData.username}</span>
+                        </div>
+                    )}
                 </div>
-                <div>
-                    <Link to="/login">Log in</Link>
+                {!user && (
+                    <div>
+                        <Link to="/login">Log in</Link>
                         <br />
-                    <Link to="/signup">Sign up</Link>
-                </div>
+                        <Link to="/signup">Sign up</Link>
+                    </div>
+                )}
             </nav>
         </div>
     )

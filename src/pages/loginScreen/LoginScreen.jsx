@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useLogin } from "../../hook/useLogin";
 
 const LoginScreen = (props) => {
-    const [loginData, setLoginData] = useState({
+    const [authData, setAuthData] = useState({
         username:"",
         password:""
     })
@@ -14,12 +14,12 @@ const LoginScreen = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        await login(loginData)
+        await login(authData)
     }
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setLoginData({ ...loginData, [name]: value });
+        setAuthData({ ...authData, [name]: value });
     }
 
     return (
@@ -31,7 +31,7 @@ const LoginScreen = (props) => {
                     type="text"
                     placeholder="Username"
                     name="username"
-                    value={loginData.username}
+                    value={authData.username}
                     onChange={handleChange}
                     required>
                 </input>
@@ -41,7 +41,7 @@ const LoginScreen = (props) => {
                     type="password" 
                     placeholder="Password" 
                     name="password" 
-                    value={loginData.password}
+                    value={authData.password}
                     onChange={handleChange}
                     required>
                 </input>
