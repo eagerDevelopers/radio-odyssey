@@ -29,6 +29,7 @@ const MapScreen = () => {
                         <Link to="/signup">Sign up</Link>
                     </div>
                 )}
+                {/* Tu stavit komponentu karte */}
             </nav>
         </div>
     )

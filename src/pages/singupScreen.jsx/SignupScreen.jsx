@@ -26,7 +26,7 @@ const SignupScreen = () => {
         <div className={styles.signupScreenContainer}>
             <h1>Sign up</h1>
             <form className={styles.signupForm} onSubmit={handleSubmit} >
-                <label for="username">Username</label>
+                <label htmlFor="username">Username</label>
                 <input 
                     type="text"
                     placeholder="Username"
@@ -36,7 +36,7 @@ const SignupScreen = () => {
                     required>
                 </input>
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input 
                     type="password" 
                     placeholder="Password" 
