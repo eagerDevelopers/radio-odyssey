@@ -8,8 +8,33 @@ export const LoginScreen = (props) => {
         password:""
     });
 
+    const [isIncorrectPass, setIncorrectPassAction] = useState(false);
+
     function handleSubmit(e) {
         e.preventDefault();
+
+        const response = fetch("//localhost:5001/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: loginData.username,
+                password: loginData.password,
+            }),
+        });
+
+        response
+            .then((value) => {
+                return value.json();
+            })
+            .then((valueJSON) => {
+                console.log(`Response from server: ${valueJSON.userAuthenticated}`);
+                setIncorrectPassAction(!valueJSON.userAuthenticated);
+            })
+            .catch((err) => {
+                console.error(err);
+            })
     }
 
     const handleChange = (e) => {
