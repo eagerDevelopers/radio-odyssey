@@ -1,27 +1,25 @@
 import React from "react";
-import styles from './LoginScreen.module.css'
+import styles from './SignupScreen.module.css'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link } from "react-router-dom";
 
 const LoginScreen = (props) => {
-    const [loginData, setLoginData] = useState({
+    const [signupData, setLoginData] = useState({
         username:"",
         password:""
     });
 
-    const [isIncorrectPass, setIncorrectPassAction] = useState(false);
-
     function handleSubmit(e) {
         e.preventDefault();
 
-        const response = fetch("//localhost:5001/login", {
+        const response = fetch("//localhost:5001/signup", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                username: loginData.username,
-                password: loginData.password,
+                username: signupData.username,
+                password: signupData.password,
             }),
         });
 
@@ -31,7 +29,7 @@ const LoginScreen = (props) => {
             })
             .then((valueJSON) => {
                 console.log(`Response from server: ${valueJSON.userAuthenticated}`);
-                setIncorrectPassAction(!valueJSON.userAuthenticated);
+                //provjerit jeli signup dobar?
             })
             .catch((err) => {
                 console.error(err);
@@ -40,19 +38,19 @@ const LoginScreen = (props) => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setLoginData({ ...loginData, [name]: value });
+        setLoginData({ ...signupData, [name]: value });
     }
 
     return (
-        <div className={styles.loginScreenContainer}>
-            <h1>Log in</h1>
-            <form className={styles.loginForm} onSubmit={handleSubmit} >
+        <div className={styles.signupScreenContainer}>
+            <h1>Sign up</h1>
+            <form className={styles.signupForm} onSubmit={handleSubmit} >
                 <label for="username">Username</label>
                 <input 
                     type="text"
                     placeholder="Username"
                     name="username"
-                    value={loginData.username}
+                    value={signupData.username}
                     onChange={handleChange}
                     required>
                 </input>
@@ -62,7 +60,7 @@ const LoginScreen = (props) => {
                     type="password" 
                     placeholder="Password" 
                     name="password" 
-                    value={loginData.password}
+                    value={signupData.password}
                     onChange={handleChange}
                     required>
                 </input>
@@ -70,8 +68,8 @@ const LoginScreen = (props) => {
             </form>
             <div className={styles.formFooter}>
                 <div>
-                    <span>Don't have an account? </span>
-                    <Link to="/signup">Register here</Link>
+                    <span>Already have an account? </span>
+                    <Link to="/login">Login to your account</Link>
                 </div>
                 <div>
                     <span>Don't need an account?</span>

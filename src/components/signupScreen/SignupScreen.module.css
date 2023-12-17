@@ -1,4 +1,4 @@
-.loginScreenContainer {
+.signupScreenContainer {
     background-image: linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
     display: flex;
     flex-direction: column;
@@ -15,15 +15,15 @@
     border-radius: 5px;
 }
 
-.loginForm {
+.signupForm {
     display: flex;
     flex-direction: column;
     width: 65%;
     margin: auto;
 }
 
-.loginForm [type="text"], 
-.loginForm [type="password"] {
+.signupForm [type="text"], 
+.signupForm [type="password"] {
   padding: 10px;
   font-size: 16px;
   background: rgba(0, 0, 0, 0.2);
@@ -34,19 +34,19 @@
   outline: none;
 }
 
-.loginForm [type="text"]::placeholder,
-.loginForm [type="password"]::placeholder {
+.signupForm [type="text"]::placeholder,
+.signupForm [type="password"]::placeholder {
     color: rgba(255, 255, 255, 0.3);
     display: flex;
     flex-direction: column;
 }
 
-.loginForm [type="submit"] {
+.signupForm [type="submit"] {
     padding: 10px;
     cursor: pointer;
 }
 
-.loginForm label {
+.signupForm label {
     text-align: left;
 }
 
