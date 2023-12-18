@@ -67,15 +67,15 @@ const LoginScreen = (props) => {
                     required>
                 </input>
                 <button type="submit" className={styles.submitButton}> Login </button>
+                <span>Or</span>
+                <button>
+                    <Link to="/map">Continue as guest</Link>
+                </button>
             </form>
             <div className={styles.formFooter}>
                 <div>
                     <span>Don't have an account? </span>
                     <Link to="/signup">Register here</Link>
-                </div>
-                <div>
-                    <span>Don't need an account?</span>
-                    <Link to="/map">Continue unregistered</Link>
                 </div>
             </div>
         </div>
