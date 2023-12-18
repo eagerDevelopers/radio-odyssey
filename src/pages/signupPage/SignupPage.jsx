@@ -4,7 +4,7 @@ import SignupScreen from '../../components/signupScreen/SignupScreen'
 
 const Home = () => {
     return (
-        <div className={styles.signupScreenContainer}>
+        <div className={styles.backgroundImageContainer}>
             <SignupScreen />
         </div>
     );

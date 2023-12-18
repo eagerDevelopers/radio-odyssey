@@ -4,7 +4,7 @@ import LoginScreen from "../../components/loginScreen/LoginScreen";
 
 const LoginPage = () => {
     return (
-        <div className={styles.loginPageContainer}>
+        <div className={styles.backgroundImageContainer}>
             <LoginScreen />
         </div>
     );

@@ -64,19 +64,19 @@ const LoginScreen = (props) => {
                     onChange={handleChange}
                     required>
                 </input>
-                <button type="submit" className={styles.submitButton}> Login </button>
+                <button type="submit" className={styles.button}> Sign up </button>
                 <span>Or</span>
             </form>
             <div className={styles.formFooter}>
                 <span>New to Radio Odyssey?</span>
                 <br />
-                <button>
+                <button className={styles.button}>
                     <Link to="/map">Continue as a guest</Link>
                 </button>
                 <br />
                 <span>Already have an account?</span>
                 <br />
-                <button>
+                <button className={styles.button}>
                     <Link to="/login">Login</Link>
                 </button>
             </div>

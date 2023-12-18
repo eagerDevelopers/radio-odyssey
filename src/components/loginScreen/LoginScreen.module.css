@@ -1,10 +1,10 @@
 .loginScreenContainer {
-    background-image: linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%);
+    background-image: linear-gradient(to top, rgba(167, 166, 203,0.7) 0%, rgba(137, 137, 186,0.7) 52%, rgba(137, 137, 186,0.7) 100%);
     display: flex;
     flex-direction: column;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     width: 380px;
-    height: 465px;
+    height: 30rem;
     margin: auto;
     position: absolute;
     top: 0;
@@ -13,6 +13,8 @@
     right: 0;
     border: solid #a1acb5 1px;
     border-radius: 5px;
+    padding-bottom: 30px;
+
 }
 
 .loginForm {
@@ -20,6 +22,8 @@
     flex-direction: column;
     width: 65%;
     margin: auto;
+    height: 80%;
+    
 }
 
 .loginForm [type="text"], 
@@ -41,9 +45,12 @@
     flex-direction: column;
 }
 
-.loginForm [type="submit"] {
+.button {
     padding: 10px;
     cursor: pointer;
+    font-weight: bolder;
+    background-color: rgb(187, 160, 145);
+
 }
 
 .loginForm label {
@@ -52,6 +59,10 @@
 
 .formFooter {
     margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    margin: auto;
 }
 
 .formFooter a {
