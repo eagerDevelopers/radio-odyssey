@@ -2,6 +2,7 @@ import React from "react";
 import styles from './LoginScreen.module.css'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginScreen = (props) => {
     const [loginData, setLoginData] = useState({
@@ -9,6 +10,7 @@ const LoginScreen = (props) => {
         password:""
     });
     const [isIncorrectPass, setIncorrectPassAction] = useState(false);
+    const navigate = useNavigate()
 
 
     function handleSubmit(e) {
@@ -31,7 +33,10 @@ const LoginScreen = (props) => {
             })
             .then((valueJSON) => {
                 console.log(`Response from server: ${valueJSON.userAuthenticated}`);
-                setIncorrectPassAction(!valueJSON.userAuthenticated);
+                if(valueJSON.userAuthenticated){
+                    console.log("1 user is authenticated")
+                    navigate('/map');
+                }
             })
             .catch((err) => {
                 console.error(err);
