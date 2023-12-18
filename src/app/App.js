@@ -5,6 +5,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginScreen from '../components/loginScreen/LoginScreen.jsx';
 import PrimjerMape from '../components/map/PrimjerMape.jsx'
 import SignupScreen from '../components/signupScreen/SignupScreen.jsx'
+import LoginPage from '../pages/loginPage/LoginPage.jsx';
+import SignupPage from '../pages/signupPage/SignupPage.jsx'
 
 function App() {
 
@@ -22,11 +24,11 @@ function App() {
             />
             <Route
               path="/login"
-              element={<LoginScreen />}
+              element={<LoginPage />}
             />
             <Route
               path="/signup"
-              element={<SignupScreen />}
+              element={<SignupPage />}
             />
         </Routes>
       </BrowserRouter>
