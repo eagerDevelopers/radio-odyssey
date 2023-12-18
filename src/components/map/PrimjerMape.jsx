@@ -1,5 +1,6 @@
 import Map from "../map/Map";
 import stanice from '../../data/stations';
+import { useState } from "react";
 
 function svjetskeStanice(){
     return(
@@ -16,8 +17,25 @@ function svjetskeStanice(){
   }
 
 function PrimjerMape(){
-    const radioStanice=svjetskeStanice()
-    return (<Map lng="16.470369012927815" lat="43.51330933410279" zoom="1" radioStanice={radioStanice} apiKey="EyqY6iqRC1RKzlOnWTFD"></Map>)
+  const [mapApiKey, setMapApiKey] = useState("")
+  const radioStanice=svjetskeStanice()
+
+  const response = fetch("//localhost:5001/mapApiKey", {
+            method: "GET",
+        });
+
+    response
+        .then((value) => {
+            return value.json();
+        })
+        .then((valueJSON) => {
+            setMapApiKey(valueJSON.mapApiKey)
+        })
+        .catch((err) => {
+            console.error(err);
+        })
+
+    return (<Map lng="16.470369012927815" lat="43.51330933410279" zoom="1" radioStanice={radioStanice} apiKey={mapApiKey}></Map>)
 }
 
 export default PrimjerMape;
