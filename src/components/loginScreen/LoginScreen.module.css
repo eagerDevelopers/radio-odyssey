@@ -61,3 +61,6 @@
 .submitButton {
     
 }
+input:required:invalid {
+    border-color: red;
+}

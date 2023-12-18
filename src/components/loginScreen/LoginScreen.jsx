@@ -8,8 +8,8 @@ const LoginScreen = (props) => {
         username:"",
         password:""
     });
-
     const [isIncorrectPass, setIncorrectPassAction] = useState(false);
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -54,7 +54,8 @@ const LoginScreen = (props) => {
                     name="username"
                     value={loginData.username}
                     onChange={handleChange}
-                    required>
+                    required
+                    >
                 </input>
 
                 <label for="password">Password</label>
@@ -64,7 +65,8 @@ const LoginScreen = (props) => {
                     name="password" 
                     value={loginData.password}
                     onChange={handleChange}
-                    required>
+                    required
+                    >
                 </input>
                 <button type="submit" className={styles.submitButton}> Login </button>
                 <span>Or</span>
