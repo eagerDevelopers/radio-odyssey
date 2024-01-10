@@ -70,15 +70,19 @@ const LoginScreen = (props) => {
             <div className={styles.formFooter}>
                 <span>New to Radio Odyssey?</span>
                 <br />
-                <button className={styles.button}>
-                    <Link to="/map">Continue as a guest</Link>
-                </button>
+                <Link to="/map">
+                    <button className={styles.button}>
+                        Continue as a guest
+                    </button>
+                </Link>
                 <br />
                 <span>Already have an account?</span>
                 <br />
-                <button className={styles.button}>
-                    <Link to="/login">Login</Link>
-                </button>
+                <Link to="/login">
+                    <button className={styles.button}>
+                        Login
+                    </button>
+                </Link>
             </div>
         </div>
     );
