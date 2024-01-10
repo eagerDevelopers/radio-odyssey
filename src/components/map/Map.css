@@ -12,3 +12,16 @@
   .popupStyle{
     color: black;
   }
+  .animated-marker {
+    animation: blink 2s infinite; /* Adjust the animation duration as needed */
+  }
+  
+  @keyframes blink {
+    0%, 50%, 100% {
+      opacity: 1;
+    }
+    25%, 75% {
+      opacity: 0.25;
+    }
+  }
+
