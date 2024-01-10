@@ -6,7 +6,10 @@ import { Link } from "react-router-dom";
 const LoginScreen = (props) => {
     const [signupData, setLoginData] = useState({
         username:"",
-        password:""
+        password:"",
+        firstName:"",
+        lastName:"",
+        email:""
     });
 
     function handleSubmit(e) {
@@ -20,6 +23,9 @@ const LoginScreen = (props) => {
             body: JSON.stringify({
                 username: signupData.username,
                 password: signupData.password,
+                firstName: signupData.firstName,
+                lastName: signupData.lastName,
+                email: signupData.email,
             }),
         });
 
@@ -54,7 +60,6 @@ const LoginScreen = (props) => {
                     onChange={handleChange}
                     required>
                 </input>
-
                 <label for="password">Password</label>
                 <input 
                     type="password" 
@@ -64,10 +69,37 @@ const LoginScreen = (props) => {
                     onChange={handleChange}
                     required>
                 </input>
+                <label for="firstName">First name</label>
+                <input 
+                    type="text" 
+                    placeholder="First name" 
+                    name="firstName" 
+                    value={signupData.email}
+                    onChange={handleChange}
+                    required>
+                </input>
+                <label for="lastName">Last name</label>
+                <input 
+                    type="text" 
+                    placeholder="Last name" 
+                    name="lastName" 
+                    value={signupData.email}
+                    onChange={handleChange}
+                    required>
+                </input>
+                <label for="email">E-mail</label>
+                <input 
+                    type="text" 
+                    placeholder="E-mail" 
+                    name="email" 
+                    value={signupData.email}
+                    onChange={handleChange}
+                    required>
+                </input>
                 <button type="submit" className={styles.button}> Sign up </button>
-                <span>Or</span>
             </form>
-            <div className={styles.formFooter}>
+                <span>Or</span>
+            <div className={styles.formFooter}> {/* ime, prezime, email?? */}
                 <span>New to Radio Odyssey?</span>
                 <br />
                 <Link to="/map">

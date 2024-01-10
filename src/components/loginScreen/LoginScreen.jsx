@@ -74,8 +74,8 @@ const LoginScreen = (props) => {
                     >
                 </input>
                 <button type="submit" className={styles.button}> Login </button>
-                <span>Or</span>
             </form>
+                <span>Or</span>
             <div className={styles.formFooter}>
                 <span>New to Radio Odyssey?</span>
                 <br />
