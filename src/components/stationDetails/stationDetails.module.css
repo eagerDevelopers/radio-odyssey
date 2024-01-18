@@ -1,0 +1,18 @@
+.stationDetails {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  span {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2em; /* Adjust the font size as needed */
+    margin-right: 10px; /* Add margin between spans if needed */
+    /* border-right: 1px solid #000; Add a border between spans */
+    padding-right: 10px; /* Adjust padding if needed */
+  }
+  
+  span:last-child {
+    border-right: none; /* Remove border from the last span */
+  }
+  
