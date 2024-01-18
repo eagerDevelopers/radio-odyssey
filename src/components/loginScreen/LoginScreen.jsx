@@ -52,7 +52,7 @@ const LoginScreen = (props) => {
         <div className={styles.loginScreenContainer}>
             <h1>Log in</h1>
             <form className={styles.loginForm} onSubmit={handleSubmit} >
-                <label for="username">Username</label>
+                <label htmlFor="username">Username</label>
                 <input 
                     type="text"
                     placeholder="Username"
@@ -63,7 +63,7 @@ const LoginScreen = (props) => {
                     >
                 </input>
 
-                <label for="password">Password</label>
+                <label htmlFor="password">Password</label>
                 <input 
                     type="password" 
                     placeholder="Password" 

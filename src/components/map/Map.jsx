@@ -64,14 +64,14 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
     return () => {
       cleanupListeners.forEach(cleanup => cleanup());
     };
-  }, [lng, lat, zoom]);
+  }, [lng, lat, zoom, radioStanice]);
 
   return (
     <div>
       <div className="map-wrap">
         <div ref={mapContainer} className="map" />
       </div>
-      <DetaljiStanice stanica={odabranaStanica} />
+      {/*<DetaljiStanice stanica={odabranaStanica} />*/}
     </div>
   );
 }

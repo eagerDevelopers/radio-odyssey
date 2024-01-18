@@ -17,7 +17,9 @@ function svjetskeStanice(){
 
 function PrimjerMape(){
     const radioStanice=svjetskeStanice()
-    return (<Map lng="16.470369012927815" lat="43.51330933410279" zoom="1" radioStanice={radioStanice} apiKey="EyqY6iqRC1RKzlOnWTFD"></Map>)
+    return (
+      <Map lng="16.470369012927815" lat="43.51330933410279" zoom="1" radioStanice={radioStanice} apiKey="EyqY6iqRC1RKzlOnWTFD" />
+    )
 }
 
 export default PrimjerMape;
