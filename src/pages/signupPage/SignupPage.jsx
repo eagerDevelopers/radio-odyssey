@@ -2,7 +2,7 @@ import React from "react";
 import styles from './SignupPage.module.css'
 import SignupScreen from '../../components/signupScreen/SignupScreen'
 
-const Home = () => {
+const SignupPage = () => {
     return (
         <div className={styles.backgroundImageContainer}>
             <SignupScreen />
@@ -10,4 +10,4 @@ const Home = () => {
     );
 }
 
-export default Home
+export default SignupPage
