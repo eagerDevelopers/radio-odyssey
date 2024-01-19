@@ -30,7 +30,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
 
       radioStanice.forEach((rs) => {
         const popup = new maptilersdk.Popup({ offset: 25 }).setHTML(
-          `<div class="popupStyle">${rs.name},${rs.frekvencija} </div>`
+          `<div class="popupStyle">${rs.name},${rs.homepage} </div>`
         ).on('open', (ev) => {
           setOdabranaStanica(rs);
         });
