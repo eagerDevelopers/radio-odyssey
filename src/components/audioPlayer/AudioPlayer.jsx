@@ -3,23 +3,37 @@ import styles from './audioPlayer.module.css'
 import ReactPlayer from "react-player";
 
 class AudioPlayer extends Component {
-    state = {
-      url: null,
-      playing: true,
-      controls: true,
-      light: false,
-      volume: 0.8,
-      muted: false,
-      played: 0,
-      loaded: 0,
-      duration: 0,
-      playbackRate: 1.0,
-      loop: false
+    constructor(props){
+      super(props)
+      this.state = {
+        url: this.props.selectedStation?.url,
+        playing: true,
+        controls: true,
+        light: false,
+        volume: 0.1,
+        muted: false,
+        played: 0,
+        loaded: 0,
+        duration: 0,
+        playbackRate: 1.0,
+        loop: false
+      }
+      if(this.props.selectedStation?.url){
+        this.state.url = this.props.selectedStation?.url
+      }
     }
   
+    componentDidUpdate(prevProps, prevState) {
+      // Check if the url has changed
+      if (this.state.url !== prevState.url) {
+        // Call the load function when the url changes
+        this.setState({url: this.props.selectedStation?.url});
+      }
+    }
+
     load = url => {
       this.setState({
-        url,
+        url: this.state.url,
         played: 0,
         loaded: 0,
         pip: false
