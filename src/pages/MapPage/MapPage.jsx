@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 
 const MapPage = () => {
     const [radioStations, setRadioStations] = useState([]);
+    const [selectedStation, setSelectedStation] = useState(null);
 
-    useEffect(() => {
+    useEffect( () => {
         const fetchRadioStationInfo = () => {
           fetch('//localhost:5001/radioStations')
             .then((response) => {
@@ -36,7 +37,7 @@ const MapPage = () => {
               }));
     
               setRadioStations(transformedStations);
-              console.log(data);
+
             })
             .catch((error) => {
               console.error("Error fetching radio station info:", error);
@@ -46,12 +47,17 @@ const MapPage = () => {
         fetchRadioStationInfo();
         
       }, []);
+
+      useEffect(() => {
+        console.log("Data in useEffect: ");
+        console.log(radioStations);
+      }, [radioStations]);
     return (
         <>
             <div className="mapPage-container">
-                <PrimjerMape radioStations={radioStations}/>             
-                <AudioPlayer />
-                <RadioStationSearch radioStations={radioStations}/>                
+                <PrimjerMape radioStations={radioStations} setSelectedStation={setSelectedStation}/>             
+                <AudioPlayer selectedStation={selectedStation}/>
+                <RadioStationSearch radioStations={radioStations} setSelectedStation={setSelectedStation}/>                
             </div>
         </>
     )
