@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./RadioStationSearch.module.css";
 import StationDetails from "../stationDetails/stationDetails.jsx";
 
-const RadioStationSearch = ({ radioStations }) => {
+const RadioStationSearch = ({ radioStations, setSelectedStation}) => {
   const [isWindowOpen, setIsWindowOpen] = useState(false);
   const [filteredStations, setFilteredStations] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
@@ -50,7 +50,7 @@ const RadioStationSearch = ({ radioStations }) => {
   return (
     <>
       <button className={styles.openButton} onClick={openWindow}>
-        Open Window
+          Radio Stations
       </button>
 
       {isWindowOpen && (
@@ -70,6 +70,7 @@ const RadioStationSearch = ({ radioStations }) => {
             <div className={styles.stationContainer}>
               {filteredStations.map((station, i) => (
                 <StationDetails
+                  setSelectedStation={setSelectedStation}
                   station={station}
                   key={station.stationuuid + 100 * i}
                 />

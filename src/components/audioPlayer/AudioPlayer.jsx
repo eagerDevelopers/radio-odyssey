@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import styles from './audioPlayer.module.css'
 import ReactPlayer from "react-player";
+import { FaCirclePlay } from "react-icons/fa6";
+import { FaCirclePause } from "react-icons/fa6";
+import { FaCircleStop } from "react-icons/fa6";
 
 class AudioPlayer extends Component {
     constructor(props){
@@ -166,8 +169,8 @@ class AudioPlayer extends Component {
                 <tr>
                     <th>Controls</th>
                     <td>
-                        <button onClick={this.handleStop}>Stop</button>
-                        <button onClick={this.handlePlayPause}>{playing ? 'Pause' : 'Play'}</button>
+                        <button onClick={this.handleStop}><FaCircleStop /></button>
+                        <button onClick={this.handlePlayPause}>{playing ? <FaCirclePause /> : <FaCirclePlay />}</button>
                     <td>
                         <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
                     </td>

@@ -2,13 +2,14 @@
 
 .stationDetails {
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(100px, 1fr); /* Adjust column width as needed */
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(120px, 1fr); /* Adjust column width as needed */
+  gap: 4px;
+  padding: 5px;
 }
 
 .stationDetails span {
   border-right: 1px solid #ccc;
-  padding: 8px;
+  padding: 2px;
   box-sizing: border-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26,15 +27,17 @@
 
 /* Styling for the play button */
 .playButton {
-  padding: 8px;
+  padding: 10px; /* Larger padding */
   box-sizing: border-box;
   border: 1px solid #4caf50;
   background-color: #4caf50;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 8px; /* Larger border radius */
   cursor: pointer;
-  font-size: 14px;
+  font-size: 14px; /* Larger font size */
   transition: background-color 0.3s, color 0.3s;
+  overflow: visible; /* Ensure the content is completely visible */
+  width: 100%; /* Cover the entire width of the column */
 }
 
 .playButton:hover {
