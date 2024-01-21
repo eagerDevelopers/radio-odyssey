@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
-import styles from "./RadioStationSearch.module.css"; // Import the CSS module
+import styles from "./RadioStationSearch.module.css";
 import StationDetails from "../stationDetails/stationDetails.jsx";
 
-const RadioStationSearch = ({radioStations}) => {
+const RadioStationSearch = ({ radioStations }) => {
   const [isWindowOpen, setIsWindowOpen] = useState(false);
+  const [filteredStations, setFilteredStations] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const openWindow = () => {
     setIsWindowOpen(true);
@@ -13,43 +16,36 @@ const RadioStationSearch = ({radioStations}) => {
     setIsWindowOpen(false);
   };
 
-  // useEffect(() => {
-  //   const fetchRadioStationInfo = () => {
-  //     fetch('//localhost:5001/radioStations')
-  //       .then((response) => {
-  //         if (!response.ok) {
-  //           throw new Error(`HTTP error! Status: ${response.status}`);
-  //         }
-  //         return response.json();
-  //       })
-  //       .then((data) => {
-  //         const transformedStations = (data.radioStations).map((station) => ({
-  //           stationuuid: station.stationuuid,
-  //           name: station.name,
-  //           url: station.url,
-  //           homepage: station.homepage || null,
-  //           favicon: station.favicon || null,
-  //           tags: station.tags,
-  //           country: station.country,
-  //           lastchangetime_in_radiobrowser: station.lastchangetime_in_radiobrowser,
-  //           codec: station.codec,
-  //           location: {
-  //             lng: station.lng,
-  //             lat: station.lat,
-  //           },
-  //           // Add more transformations if needed
-  //         }));
+  useEffect(() => {
+    setFilteredStations(radioStations);
+  }, [radioStations]);
 
-  //         setRadioStations(transformedStations);
-  //         console.log(data);
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error fetching radio station info:", error);
-  //       });
-  //   };
+  const handleSort = () => {
+    const sortOrderToggle = sortOrder === "asc" ? "desc" : "asc";
+    setSortOrder(sortOrderToggle);
 
-  //   fetchRadioStationInfo();
-  // }, []);
+    const sortedStationsByCountry = [...filteredStations].sort((a, b) => {
+      const valueA = a.country || "";
+      const valueB = b.country || "";
+      const order = sortOrderToggle === "asc" ? 1 : -1;
+      return valueA.localeCompare(valueB) * order;
+    });
+
+    setFilteredStations(sortedStationsByCountry);
+  };
+
+  const handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    setSearchTerm(searchTerm);
+
+    const filteredStationsByName = radioStations.filter(
+      (station) =>
+        station.name.toLowerCase().includes(searchTerm) ||
+        station.country.toLowerCase().includes(searchTerm)
+    );
+
+    setFilteredStations(filteredStationsByName);
+  };
 
   return (
     <>
@@ -60,24 +56,28 @@ const RadioStationSearch = ({radioStations}) => {
       {isWindowOpen && (
         <div className={styles.overlay}>
           <div className={styles.window}>
+            <div className={styles.sortButtons}>
+              <button onClick={handleSort}>Sort by Country</button>
+            </div>
+            <div className={styles.inputContainer}>
+              <input
+                type="text"
+                placeholder="Search by Name, Country or Tag"
+                value={searchTerm}
+                onChange={handleSearch}
+              />
+            </div>
             <div className={styles.stationContainer}>
-              {radioStations.map((station,i) => (
-                <StationDetails station={station} key={station.stationuuid+100*i} />
+              {filteredStations.map((station, i) => (
+                <StationDetails
+                  station={station}
+                  key={station.stationuuid + 100 * i}
+                />
               ))}
             </div>
             <button className={styles.exitButton} onClick={closeWindow}>
               Exit
             </button>
-            {/* { Display radio station info inside the window }
-            {radioStationInfo ? (
-              <div>
-                 { <h2>{radioStationInfo.name}</h2>
-                 <p>{radioStationInfo.description}</p> }
-                 Add more details as needed
-               </div>
-             ) : (
-               <p>Loading radio station info...</p>
-             )} */}
           </div>
         </div>
       )}
