@@ -34,7 +34,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
         ).on('open', (ev) => {
           setOdabranaStanica(rs);
         });
-
+        
         const marker = new maptilersdk.Marker({ color: '#FF0000' });
         marker
           .setLngLat([rs.lng, rs.lat])
@@ -60,18 +60,19 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
         });
       });
     }
-
+    console.log("Markeri: ")
+    console.log(markers)
     return () => {
       cleanupListeners.forEach(cleanup => cleanup());
     };
-  }, [lng, lat, zoom, radioStanice]);
+  }, [lng, lat, zoom]);
 
   return (
     <div>
-      <div className="map-wrap">
-        <div ref={mapContainer} className="map" />
-      </div>
-      {/* <DetaljiStanice stanica={odabranaStanica} /> */}
+     <div className="map-wrap">
+  <div ref={mapContainer} className="map"  />
+</div>
+      <DetaljiStanice stanica={odabranaStanica} />
     </div>
   );
 }
