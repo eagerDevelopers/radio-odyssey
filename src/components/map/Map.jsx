@@ -4,9 +4,12 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as maptilersdk from '@maptiler/sdk';
 import '@maptiler/sdk/dist/maptiler-sdk.css';
 import './Map.css';
-import DetaljiStanice from './DetaljiStanice';
 
-function Map({ lng, lat, zoom, apiKey, radioStanice }) {
+function isValidLongitude(longitude) {
+  return typeof longitude === 'number' && !isNaN(longitude);
+}
+
+function Map({ lng, lat, zoom, apiKey, radioStanice, setSelectedStation }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   maptilersdk.config.apiKey = apiKey;
@@ -15,8 +18,9 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
   useEffect(() => {
     const markers = [];
     const cleanupListeners = [];
-
-    if (map.current) {
+    console.log("Radio stanice stigle u mapjsx: ")
+    console.log(radioStanice)
+    if (false/*map.current*/) {
       map.current.setZoom(zoom);
       map.current.setCenter([lng, lat]);
       map.current.redraw();
@@ -28,20 +32,28 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
         zoom: zoom,
       });
 
-      radioStanice.forEach((rs) => {
+    }
+    console.log("Raadio stanice u Map.jsx")
+    console.log(radioStanice)
+
+    radioStanice.forEach((rs) => {
+      if (true) {
+        // Your marker creation logic here
         const popup = new maptilersdk.Popup({ offset: 25 }).setHTML(
-          `<div class="popupStyle">${rs.name},${rs.frekvencija} </div>`
+          <div class="popupStyle">${rs.name},${rs.homepage} </div>
         ).on('open', (ev) => {
           setOdabranaStanica(rs);
+          setSelectedStation(rs)
         });
-        
+
         const marker = new maptilersdk.Marker({ color: '#FF0000' });
         marker
-          .setLngLat([rs.lng, rs.lat])
+          .setLngLat([rs.location.lng, rs.location.lat])
           .setPopup(popup)
           .addTo(map.current);
 
         markers.push(marker);
+        console.log("marker kreirean!!")
 
         const handleMouseOver = () => {
           marker.getElement().classList.add('animated-marker');
@@ -58,21 +70,23 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
           marker.getElement().removeEventListener('mouseover', handleMouseOver);
           marker.getElement().removeEventListener('mouseleave', handleMouseLeave);
         });
-      });
-    }
-    console.log("Markeri: ")
-    console.log(markers)
+      } else {
+        //console.log(Invalid longitude for station ${rs.name}: ${rs.lng});
+      }
+    });
+    console.log("Markeri: " + markers)
+
     return () => {
       cleanupListeners.forEach(cleanup => cleanup());
     };
-  }, [lng, lat, zoom]);
+  }, [lng, lat, zoom, radioStanice]);
 
   return (
     <div>
-     <div className="map-wrap">
-  <div ref={mapContainer} className="map"  />
-</div>
-      <DetaljiStanice stanica={odabranaStanica} />
+      <div className="map-wrap">
+        <div ref={mapContainer} className="map" />
+      </div>
+      {/* <DetaljiStanice stanica={odabranaStanica} /> */}
     </div>
   );
 }
