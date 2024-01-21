@@ -8,7 +8,8 @@ const StationDetails = ({ station }) => {
       <div className={styles.stationDetails}>
         <span>{station.name}</span>
         <span>{station.country}</span>
-        {station.tags ? <span>{station.tags}</span>:<span>Not known</span>}
+        {station.tags ? <span>{station.tags}</span> : <span>Not known</span>}
+        <span className={styles.playButton}>Play</span>
       </div>
     </>
   );

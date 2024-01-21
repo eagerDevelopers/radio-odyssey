@@ -2,8 +2,8 @@
 
 .stationDetails {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust column width as needed */
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(150px, 1fr)) minmax(100px, 1fr); /* Adjust column width as needed */
+  gap: 12px;
 }
 
 .stationDetails span {
@@ -24,6 +24,22 @@
   display: inline-block;
 }
 
+/* Styling for the play button */
+.playButton {
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #4caf50;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.playButton:hover {
+  background-color: #45a049;
+}
 .sortButtons {
   margin-bottom: 16px;
 }
