@@ -40,7 +40,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice, setSelectedStation }) {
       if (true) {
         // Your marker creation logic here
         const popup = new maptilersdk.Popup({ offset: 25 }).setHTML(
-          <div class="popupStyle">${rs.name},${rs.homepage} </div>
+          `<div class="popupStyle">${rs.name},${rs.homepage} </div>`
         ).on('open', (ev) => {
           setOdabranaStanica(rs);
           setSelectedStation(rs)
