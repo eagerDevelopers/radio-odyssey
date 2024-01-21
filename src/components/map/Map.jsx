@@ -72,7 +72,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
         <div ref={mapContainer} className="map" />
       </div>
       {/* <DetaljiStanice stanica={odabranaStanica} /> */}
-      </div>
+    </div>
   );
 }
 
