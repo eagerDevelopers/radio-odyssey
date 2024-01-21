@@ -71,7 +71,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice, setSelectedStation }) {
           marker.getElement().removeEventListener('mouseleave', handleMouseLeave);
         });
       } else {
-        //console.log(Invalid longitude for station ${rs.name}: ${rs.lng});
+        //console.log(`Invalid longitude for station ${rs.name}: ${rs.lng}`);
       }
     });
     console.log("Markeri: " + markers)
