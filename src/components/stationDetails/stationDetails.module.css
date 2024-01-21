@@ -1,0 +1,16 @@
+/* stationDetails.module.css */
+
+.stationDetails {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the column width as needed */
+  gap: 16px; /* Adjust the gap between columns as needed */
+}
+
+.stationDetails span {
+  border-right: 1px solid #ccc; /* Border on the right side */
+  padding: 8px; /* Adjust the padding as needed */
+  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

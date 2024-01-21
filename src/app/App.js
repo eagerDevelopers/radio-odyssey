@@ -3,8 +3,8 @@ import Home from '../components/home/Home.jsx';
 import '../styles/App.css';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import PrimjerMape from '../components/map/PrimjerMape.jsx'
-import LoginPage from '../pages/LoginPage/LoginPage.jsx';
-import SignupPage from '../pages/SignupPage/SignupPage.jsx'
+import LoginPage from '../pages/loginPage/LoginPage.jsx';
+import SignupPage from '../pages/signupPage/SignupPage.jsx'
 import MapPage from '../pages/MapPage/MapPage.jsx';
 
 function App() {

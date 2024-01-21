@@ -1,7 +1,10 @@
 .map-wrap {
+  overflow:visible;
+  display: flex;
+
     position: relative;
     width: 100%;
-    height: calc(100vh - 77px); /* calculate height of the screen minus the heading */
+    height: calc(100vh); /* calculate height of the screen minus the heading */
   }
   
   .map {
