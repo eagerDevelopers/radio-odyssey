@@ -1,0 +1,17 @@
+.audioPlayerContainer{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 3.3rem;
+    width: 80rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 250%);
+    z-index: 2;
+    background-color: black;
+    padding: 20px;
+}
+
+.audioPlayer{
+    justify-content: center;
+}

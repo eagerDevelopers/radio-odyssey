@@ -64,7 +64,7 @@ function Map({ lng, lat, zoom, apiKey, radioStanice }) {
     return () => {
       cleanupListeners.forEach(cleanup => cleanup());
     };
-  }, [lng, lat, zoom]);
+  }, [lng, lat, zoom, radioStanice]);
 
   return (
     <div>
