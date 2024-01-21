@@ -1,13 +1,12 @@
 import React from "react";
 import styles from './stationDetails.module.css';
 
-const StationDetails = () => {
+const StationDetails = ({station}) => {
   return (
     <>
         <div className={styles.stationDetails}>
-            <span>Ime</span>
-            <span>Zanr</span>
-            <span>Frekvencija</span>
+            <span>{station.name}</span>
+            <span>{station.country}</span>
         </div>
     </>
   );
