@@ -52,7 +52,6 @@ const MapPage = () => {
             <div className="mapPage-container">
                 <PrimjerMape radioStations={radioStations}/>
                 <AudioPlayer />
-                <NavBar></NavBar>
                 <RadioStationSearch radioStations={radioStations}/>
             </div>
         </>
