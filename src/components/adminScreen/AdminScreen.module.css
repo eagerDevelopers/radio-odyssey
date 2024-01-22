@@ -1,0 +1,42 @@
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.adminContainer{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 703px;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+
+.button{
+    margin: 1em;
+    padding: 3%;
+}
+
+.list{
+    /*background-color: rgba(128, 128, 128, 0.5);*/
+    width: 300px;
+    height: 703px;
+    margin-left: 20em;
+}
+
+.logout{
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+}
+
+.buttonlogout{
+    margin: 1em;
+    padding: 3%;
+    width: 100%;
+}
+
+.listh{
+    padding: 4%;
+    margin: 3.5em;
+}

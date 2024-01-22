@@ -1,10 +1,10 @@
 import React from "react";
-import styles from './LoginScreen.module.css'
+import styles from './AdminLoginScreen.module.css'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const LoginScreen = (props) => {
+const AdminLoginScreen = (props) => {
     const [loginData, setLoginData] = useState({
         username:"",
         password:""
@@ -50,9 +50,9 @@ const LoginScreen = (props) => {
 
     return (
         <div className={styles.loginScreenContainer}>
-            <h1>Log in</h1>
+            <h1>Admin Log in</h1>
             <form className={styles.loginForm} onSubmit={handleSubmit} >
-                <label htmlFor="username">Username</label>
+                <label for="username">Username</label>
                 <input 
                     type="text"
                     placeholder="Username"
@@ -63,7 +63,7 @@ const LoginScreen = (props) => {
                     >
                 </input>
 
-                <label htmlFor="password">Password</label>
+                <label for="password">Password</label>
                 <input 
                     type="password" 
                     placeholder="Password" 
@@ -75,29 +75,15 @@ const LoginScreen = (props) => {
                 </input>
                 <button type="submit" className={styles.button}> Login </button>
             </form>
-                <span>Or</span>
             <div className={styles.formFooter}>
-                <span>New to Radio Odyssey?</span>
-                <br />
-                <Link to="/map">
+                <Link to="/login">
                     <button className={styles.button}>
-                        Continue as guest
+                        Back to home page
                     </button>
                 </Link>
-                <br />
-                <span>Don't have an account?</span>
-                <br />
-                <Link to="/signup">
+                <Link to="/admin">
                     <button className={styles.button}>
-                        Register
-                    </button>
-                </Link>
-                <br/>
-                <span>Log in as admin</span>
-                <br/>
-                <Link to="/adminlogin">
-                    <button className={styles.button}>
-                        Login
+                        Admin
                     </button>
                 </Link>
             </div>
@@ -105,4 +91,4 @@ const LoginScreen = (props) => {
     );
 }
 
-export default LoginScreen
+export default AdminLoginScreen

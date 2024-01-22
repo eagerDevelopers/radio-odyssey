@@ -6,6 +6,8 @@ import PrimjerMape from '../components/map/PrimjerMape.jsx'
 import LoginPage from '../pages/loginPage/LoginPage.jsx';
 import SignupPage from '../pages/signupPage/SignupPage.jsx'
 import MapPage from '../pages/MapPage/MapPage.jsx';
+import AdminLoginPage from '../pages/adminLoginPage/adminLoginPage.jsx';
+import AdminPage from '../pages/adminPage/adminPage.jsx';
 
 function App() {
 
@@ -28,6 +30,14 @@ function App() {
             <Route
               path="/signup"
               element={<SignupPage />}
+            />
+            <Route
+              path="/adminlogin"
+              element={<AdminLoginPage />}
+            />
+            <Route
+              path="/admin"
+              element={<AdminPage />}
             />
         </Routes>
       </BrowserRouter>
