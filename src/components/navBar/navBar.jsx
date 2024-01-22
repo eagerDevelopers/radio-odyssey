@@ -21,12 +21,12 @@ const NavBar = () => {
       {loggedIn ?
         <div className={styles.container}>
           <h2>Hello {userToken && userToken.username}</h2>
-          <button className={styles.authButton} onClick={logout}>Logout</button>
+          <button className={styles.authButton} onClick={() => logout()}>Logout</button>
         </div>
         :
-        <div className={styles.container}>
-          <button className={styles.authButton} onClick={navigate("/login")}>Login</button>
-          <button className={styles.authButton} onClick={navigate("/signup")}>Signup</button>
+        <div className={styles.containerAlt}>
+          <button className={styles.authButton} onClick={() => navigate("/")}>Login</button>
+          <button className={styles.authButton} onClick={() => navigate("/signup")}>Signup</button>
         </div>
       }
     </>

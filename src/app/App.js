@@ -27,7 +27,7 @@ function App() {
               element={<MapPage />}
             />
             <Route
-              path="/login"
+              path="/"
               element={!loggedIn ? <LoginPage /> : <Navigate to="/map" />}
             />
             <Route

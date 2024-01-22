@@ -90,7 +90,7 @@ const LoginScreen = (props) => {
                 <br />
                 <span>Already have an account?</span>
                 <br />
-                <Link to="/login">
+                <Link to="/">
                     <button className={styles.button}>
                         Login
                     </button>
