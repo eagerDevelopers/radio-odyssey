@@ -1,0 +1,28 @@
+.authButton {
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+  background-color: #4caf50; /* Green color for the open button */
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 80%;
+}
+
+.authButton:hover {
+  background-color: #45a049; /* Darker green color on hover */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  transform: translate(-50%, -480%);
+  top: 50%;
+  left: 50%;
+}

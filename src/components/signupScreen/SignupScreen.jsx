@@ -2,8 +2,12 @@ import React from "react";
 import styles from './SignupScreen.module.css'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSignup } from "../../hooks/useSignup";
 
 const LoginScreen = (props) => {
+    const { signup } = useSignup();
+    const navigate = useNavigate()
     const [signupData, setLoginData] = useState({
         username:"",
         password:"",
@@ -12,35 +16,11 @@ const LoginScreen = (props) => {
         email:""
     });
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const response = fetch("//localhost:5001/signup", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: signupData.username,
-                password: signupData.password,
-                firstName: signupData.firstName,
-                lastName: signupData.lastName,
-                email: signupData.email,
-            }),
-        });
-
-        response
-            .then((value) => {
-                return value.json();
-            })
-            .then((valueJSON) => {
-                console.log(`Response from server: ${valueJSON.userAuthenticated}`);
-                //provjerit jeli signup dobar?
-            })
-            .catch((err) => {
-                console.error(err);
-            })
-    }
+        await signup(signupData);
+    }   
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -74,7 +54,7 @@ const LoginScreen = (props) => {
                     type="text" 
                     placeholder="First name" 
                     name="firstName" 
-                    value={signupData.email}
+                    value={signupData.firstName}
                     onChange={handleChange}
                     required>
                 </input>
@@ -83,7 +63,7 @@ const LoginScreen = (props) => {
                     type="text" 
                     placeholder="Last name" 
                     name="lastName" 
-                    value={signupData.email}
+                    value={signupData.lastName}
                     onChange={handleChange}
                     required>
                 </input>

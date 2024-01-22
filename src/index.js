@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './app/App';
 import reportWebVitals from './app/reportWebVitals';
+import { AuthContextProvider } from './context/AuthContext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <App />
+    <AuthContextProvider>
+        <App /> 
+    </AuthContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

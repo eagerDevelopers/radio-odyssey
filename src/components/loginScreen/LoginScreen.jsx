@@ -3,8 +3,10 @@ import styles from './LoginScreen.module.css'
 import { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../../hooks/useLogin";
 
 const LoginScreen = (props) => {
+    const {login} = useLogin();
     const [loginData, setLoginData] = useState({
         username:"",
         password:""
@@ -13,34 +15,10 @@ const LoginScreen = (props) => {
     const navigate = useNavigate()
 
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const response = fetch("//localhost:5001/login", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                username: loginData.username,
-                password: loginData.password,
-            }),
-        });
-
-        response
-            .then((value) => {
-                return value.json();
-            })
-            .then((valueJSON) => {
-                console.log(`Response from server: ${valueJSON.userAuthenticated}`);
-                if(valueJSON.userAuthenticated){
-                    console.log("1 user is authenticated")
-                    navigate('/map');
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-            })
+        await login(loginData);        
     }
 
     const handleChange = (e) => {
