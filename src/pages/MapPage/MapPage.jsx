@@ -4,6 +4,7 @@ import PrimjerMape from "../../components/map/PrimjerMape";
 import AudioPlayer from "../../components/audioPlayer/AudioPlayer";
 import RadioStationSearch from "../../components/RadioStationSearch/RadioStationSearch";
 import { useEffect, useState } from "react";
+import NavBar from "../../components/navBar/navBar";
 
 const MapPage = () => {
     const [radioStations, setRadioStations] = useState([]);
