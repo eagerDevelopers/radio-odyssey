@@ -169,8 +169,8 @@ class AudioPlayer extends Component {
                 <tr>
                     <th>Controls</th>
                     <td>
-                        <button onClick={this.handleStop}><FaCircleStop /></button>
-                        <button onClick={this.handlePlayPause}>{playing ? <FaCirclePause /> : <FaCirclePlay />}</button>
+                        <button className={styles.audioPlayerButton} onClick={this.handleStop}><FaCircleStop /></button>
+                        <button className={styles.audioPlayerButton} onClick={this.handlePlayPause}>{playing ? <FaCirclePause /> : <FaCirclePlay />}</button>
                     <td>
                         <input type='range' min={0} max={1} step='any' value={volume} onChange={this.handleVolumeChange} />
                     </td>
@@ -178,7 +178,7 @@ class AudioPlayer extends Component {
                     <th>Custom URL</th>
                     <td>
                         <input ref={input => { this.urlInput = input }} type='text' placeholder='Enter URL' />
-                        <button onClick={() => this.setState({ url: this.urlInput.value })}>Load</button>
+                        <button className={styles.audioPlayerButton} onClick={() => this.setState({ url: this.urlInput.value })}>Load</button>
                     </td>
                 </tr>
             </div>

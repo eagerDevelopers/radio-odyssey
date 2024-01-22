@@ -20,7 +20,7 @@ const MapPage = () => {
               return response.json();
             })
             .then((data) => {
-              const transformedStations = (data.radioStations).map((station) => ({
+              const transformedStations = (data).map((station) => ({
                 stationuuid: station.stationuuid,
                 name: station.name,
                 url: station.url,
