@@ -52,7 +52,7 @@ const MapPage = () => {
             <div className="mapPage-container">
                 <PrimjerMape radioStations={radioStations} setSelectedStation={setSelectedStation}/>             
                 <AudioPlayer selectedStation={selectedStation}/>
-                <RadioStationSearch radioStations={radioStations} setSelectedStation={setSelectedStation}/>
+                <RadioStationSearch radioStations={radioStations} setSelectedStation={setSelectedStation}/>           
             </div>
         </>
     )
