@@ -50,10 +50,10 @@ const MapPage = () => {
     return (
         <>
             <div className="mapPage-container">
-                <PrimjerMape radioStations={radioStations}/>             
+                <PrimjerMape radioStations={radioStations}/>
                 <AudioPlayer />
                 <NavBar></NavBar>
-                <RadioStationSearch radioStations={radioStations}/>                
+                <RadioStationSearch radioStations={radioStations}/>
             </div>
         </>
     )
